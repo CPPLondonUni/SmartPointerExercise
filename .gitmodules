@@ -1,0 +1,3 @@
+[submodule "simple_smart_pointer"]
+	path = simple_smart_pointer
+	url = https://github.com/CPPLondonUni/simple_smart_pointer.git
