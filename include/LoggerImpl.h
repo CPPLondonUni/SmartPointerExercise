@@ -4,27 +4,24 @@
 
 #include <fstream>
 
-class LoggerImpl : public ILogger
-{
-public:
-    LoggerImpl(std::string fileName) : logFile{fileName, std::fstream::ate} {}
-    
-    ~LoggerImpl()
-    {
-        logFile.flush();
-        logFile.close();
+class LoggerImpl : public ILogger {
+ public:
+  LoggerImpl(std::string fileName) : logFile{fileName, std::fstream::ate} {}
+
+  ~LoggerImpl() {
+    logFile.flush();
+    logFile.close();
+  }
+
+ public:
+  void Log(ILogger::LogLevel lLevel, std::string msg) override {
+    if (lLevel == ILogger::LogLevel::ERROR) {
+      logFile << msg;
     }
-public:
-    void Log(ILogger::LogLevel lLevel, std::string msg) override
-    {
-        if(lLevel == ILogger::LogLevel::ERROR)
-        {
-            logFile << msg;
-        }
-    }
-    
-private:
-    std::ofstream logFile;
+  }
+
+ private:
+  std::ofstream logFile;
 };
 
 #endif
