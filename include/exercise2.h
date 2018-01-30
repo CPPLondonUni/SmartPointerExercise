@@ -4,6 +4,9 @@
 #include <cstdint>
 #include <random>
 
+// TODO modernise syntax (e.g. for loop)
+// TODO remove any raw pointers
+
 class RandomDataProvider {
  public:
   RandomDataProvider(int cnt) {
