@@ -17,7 +17,7 @@ public:
 public:
     void Log(ILogger::LogLevel lLevel, std::string msg) override
     {
-        if(lLevel & ILogger::LogLevel::ERROR)
+        if(lLevel == ILogger::LogLevel::ERROR)
         {
             logFile << msg;
         }
